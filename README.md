@@ -1,59 +1,91 @@
 # Los Angeles Crime Time Series Analysis
 
-## Overview
+Exploratory time series analysis and forecasting of crime incidents in the City of Los Angeles using publicly available open data.
 
-This project analyzes crime data in the City of Los Angeles using time series techniques to uncover temporal patterns, seasonality, trends, and potential forecasting capabilities.
+![Los Angeles skyline at night](https://images.unsplash.com/photo-1540979388789-7cee28a1cdc9?auto=format&fit=crop&w=1200&q=80)
 
-Main objectives:
-- Understand long-term trends in total crime volume
-- Identify seasonal and weekly patterns
-- Compare crime types (violent vs. property vs. others)
-- Evaluate multiple forecasting models
-- Provide interpretable insights for urban policy / public safety discussion
+## Project Overview
+
+This project analyzes temporal patterns in crime data reported in Los Angeles from 2020 onward. The main goals are:
+
+- Clean and preprocess the raw crime dataset
+- Aggregate incidents into time series (daily / monthly)
+- Perform exploratory data analysis → trends, seasonality, decomposition
+- Apply time series forecasting models
+- Compare model performance and visualize predictions
+
+The analysis is implemented in one consolidated Jupyter notebook:  
+**`LA_Crime_Time_Series_Analysis_trim.ipynb`**
 
 ## Dataset
 
-**Source**: Los Angeles Open Data Portal  
-**Main file**: [Crime Data from 2020 to Present](https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8)  
-**Format**: CSV (~1.2M rows as of late 2025 / early 2026)
+**Source**  
+Los Angeles Open Data Portal  
+[Crime Data from 2020 to Present](https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8)
 
-Key columns used:
-- `DATE OCC` / `DATE RPTD` — crime occurrence date
-- `TIME OCC` — time (HHMM format)
-- `Crm Cd Desc` / `Crm Cd` — crime type & code
-- `AREA NAME` / `AREA` — geographic area / division
-- `LAT` / `LON` — location coordinates
-- `Vict Age`, `Vict Sex`, `Vict Descent` — victim demographics (used in some breakdowns)
+- Format: CSV
+- Coverage: January 2020 → present (updates frequently)
+- Key fields used:
+  - `DATE OCC` → date of occurrence
+  - `TIME OCC` → time (HHMM)
+  - `Crm Cd Desc` / `Crm Cd` → crime description & code
+  - `AREA NAME` → geographic division
+  - `LAT` / `LON` → coordinates
+  - Victim demographics (`Vict Age`, `Vict Sex`, `Vict Descent`)
 
-## Project Structure
+## Notebook Structure & Main Sections
+
+1. **Setup & Library Imports**  
+   pandas, numpy, matplotlib, seaborn, plotly, statsmodels, prophet, sklearn, etc.
+
+2. **Data Loading & Initial Cleaning**  
+   - Read CSV  
+   - Convert date/time columns  
+   - Handle missing/invalid values  
+   - Filter to relevant records
+
+3. **Feature Engineering & Aggregation**  
+   - Extract year, month, day, weekday, hour  
+   - Create crime category groupings (violent, property, etc.)  
+   - Aggregate to daily and monthly time series
+
+4. **Exploratory Data Analysis**  
+   - Overall crime trend over years  
+   - Monthly / seasonal patterns  
+   - Weekly cycle (weekday vs weekend)  
+   - Time-of-day distribution  
+   - Decomposition (trend + seasonal + residual) using STL or classical methods  
+   - ACF / PACF plots
+
+5. **Time Series Modeling & Forecasting**  
+   - Classical approaches:  
+     - ARIMA / SARIMA (via statsmodels / pmdarima)  
+   - Facebook Prophet (with yearly seasonality + holidays)  
+   - Train/test split (e.g. last 12–24 months as test)  
+   - Generate point forecasts + uncertainty intervals
+
+6. **Model Evaluation**  
+   - Metrics: MAE, RMSE, MAPE  
+   - Visual comparison: actual vs predicted values  
+   - Residual diagnostics
+
+7. **Visualizations**  
+   - Line plots (trends, forecasts)  
+   - Seasonal decomposition plots  
+   - Heatmaps (weekday × hour)  
+   - Bar charts by crime type / area
+
+## Technologies Used
 
 ```text
-LA_Crime_Time_Series_Analysis/
-├── data/
-│   ├── raw/                  # original downloaded CSVs (not committed)
-│   └── processed/            # cleaned & aggregated time series data
-│
-├── notebooks/
-│   ├── 01_data_exploration.ipynb          # initial EDA, cleaning, geocoding checks
-│   ├── 02_time_series_preparation.ipynb   # aggregation to daily/weekly/monthly
-│   ├── 03_exploratory_analysis.ipynb      # trends, seasonality, decomposition
-│   ├── 04_modeling_arima_prophet.ipynb    # classical & Facebook Prophet models
-│   ├── 05_deep_learning_forecast.ipynb    # LSTM / GRU experiments (optional)
-│   └── 06_evaluation_comparative.ipynb    # model comparison, metrics
-│
-├── src/
-│   ├── data/
-│   │   └── preprocess.py
-│   ├── features/
-│   │   └── build_features.py
-│   ├── models/
-│   │   └── forecast_models.py
-│   └── visualization/
-│       └── plots.py
-│
-├── reports/
-│   └── figures/              # exported high-quality plots
-│
-├── requirements.txt
-├── README.md
-└── .gitignore
+Python 3.9+
+pandas
+numpy
+matplotlib
+seaborn
+plotly
+statsmodels
+pmdarima (auto_arima)
+prophet
+scikit-learn
+jupyter
