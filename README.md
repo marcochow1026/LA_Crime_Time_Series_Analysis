@@ -1,9 +1,5 @@
 # Los Angeles Crime Time Series Analysis
 
-Exploratory time series analysis and forecasting of crime incidents in the City of Los Angeles using publicly available open data.
-
-![Los Angeles skyline at night](https://images.unsplash.com/photo-1540979388789-7cee28a1cdc9?auto=format&fit=crop&w=1200&q=80)
-
 ## Project Overview
 
 This project analyzes temporal patterns in crime data reported in Los Angeles from 2020 onward. The main goals are:
