@@ -1,9 +1,4 @@
-# LA_Crime_Time_Series_Analysis
-
 # Los Angeles Crime Time Series Analysis
-
-![LA Skyline](https://images.unsplash.com/photo-1540979388789-7cee28a1cdc9?auto=format&fit=crop&w=1200&q=80)  
-*(Exploratory time series analysis of crime patterns in Los Angeles)*
 
 ## Overview
 
