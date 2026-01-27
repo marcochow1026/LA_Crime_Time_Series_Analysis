@@ -57,14 +57,3 @@ Both notebooks are designed to be run in Jupyter / Colab. The full version may i
 
 **Recommendation for LAPD**:
 Increase police presence and resources during summer months, particularly in high-risk areas and known hotspots, to address seasonal spikes in violent crime.
-
-## How to Run
-
-Clone the repository:Bashgit clone https://github.com/marcochow1026/LA_Crime_Time_Series_Analysis.git
-cd LA_Crime_Time_Series_Analysis
-Download the raw CSV files from the LA Open Data Portal links above.
-(Optional) Combine and filter the data locally using the commented code in the notebook, then save as violent_crimes.csv.
-Open LA_Crime_Time_Series_Analysis_1.ipynb (or the trim version) in JupyterLab / VS Code / Colab.
-Run cells sequentially. The plot and metrics will be generated.
-
-Note: Raw data files are large (~1 GB+ combined). First run may be slow.
