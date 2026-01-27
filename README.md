@@ -1,11 +1,6 @@
 # Los Angeles Violent Crime Time Series Analysis
 
-**Repository:** [marcochow1026/LA_Crime_Time_Series_Analysis](https://github.com/marcochow1026/LA_Crime_Time_Series_Analysis)
-
 This project performs a time series analysis on **Part I Violent Crimes** in the City of Los Angeles, using publicly available crime data from 2010 to early 2024. The focus is on identifying long-term trends, seasonal patterns (especially summer peaks), and out-of-sample forecasting performance.
-
-![Monthly Violent Crimes in Los Angeles (2010–Feb 2024)](https://raw.githubusercontent.com/marcochow1026/LA_Crime_Time_Series_Analysis/main/figures/monthly_violent_crimes.png)  
-*(Example time series plot of monthly violent crime counts – generated from the notebook)*
 
 ## Project Overview
 
@@ -51,7 +46,9 @@ Both notebooks are designed to be run in Jupyter / Colab. The full version may i
 
 ## Key Results
 
-- **Trend**: Violent crime counts show post-pandemic recovery patterns with noticeable seasonal peaks (especially summer months).
+- **Seasonality**: Violent crime counts show noticeable seasonal pattern:
+  - **Summer Peak**: Especially in August, 205 crimes above average
+  - **Winter Though**: Especially in February, 379 crime drop below average
 - **Forecasting performance** (on last 24 months test set):
   - MAE: 171.5 crimes/month
   - MAPE: 7.09%
@@ -61,12 +58,13 @@ Both notebooks are designed to be run in Jupyter / Colab. The full version may i
 **Recommendation for LAPD**:
 Increase police presence and resources during summer months, particularly in high-risk areas and known hotspots, to address seasonal spikes in violent crime.
 
-## Technologies & Requirements
+## How to Run
 
-```text
-Python 3.8+
-pandas
-numpy
-matplotlib
-seaborn
-jupyter
+Clone the repository:Bashgit clone https://github.com/marcochow1026/LA_Crime_Time_Series_Analysis.git
+cd LA_Crime_Time_Series_Analysis
+Download the raw CSV files from the LA Open Data Portal links above.
+(Optional) Combine and filter the data locally using the commented code in the notebook, then save as violent_crimes.csv.
+Open LA_Crime_Time_Series_Analysis_1.ipynb (or the trim version) in JupyterLab / VS Code / Colab.
+Run cells sequentially. The plot and metrics will be generated.
+
+Note: Raw data files are large (~1 GB+ combined). First run may be slow.
