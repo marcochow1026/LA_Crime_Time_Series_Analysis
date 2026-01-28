@@ -58,4 +58,4 @@ Both notebooks are designed to be run in Jupyter / Colab. The full version may i
 **Recommendation for LAPD**:
 - Increase uniformed patrol hours and proactive enforcement by 15–25% during May–September.
 - Launch pre-summer public safety messaging in late April / early May, reminding residents of increased outdoor activity, gun violence risks, and domestic violence during summer.
-- 
+- Coordinate with community violence intervention partners to increase street-level mediation, conflict interruption, and hospital-based interventions during summer evenings.
