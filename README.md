@@ -56,4 +56,6 @@ Both notebooks are designed to be run in Jupyter / Colab. The full version may i
 - These metrics indicate good predictive accuracy for monthly violent crime volume.
 
 **Recommendation for LAPD**:
-Increase police presence and resources during summer months, particularly in high-risk areas and known hotspots, to address seasonal spikes in violent crime.
+- Increase uniformed patrol hours and proactive enforcement by 15–25% during May–September.
+- Launch pre-summer public safety messaging in late April / early May, reminding residents of increased outdoor activity, gun violence risks, and domestic violence during summer.
+- 
